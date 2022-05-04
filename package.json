@@ -1,0 +1,21 @@
+{
+  "name": "speckle-chat",
+  "version": "0.0.1",
+  "description": "Webhook relay for Speckle Server to Google Chat",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urbansurgery/speckle-chat.git"
+  },
+  "keywords": [
+    "speckle",
+    "google-chat"
+  ],
+  "author": "@jsdbroughton",
+  "bugs": {
+    "url": "https://github.com/urbansurgery/speckle-chat/issues"
+  },
+  "homepage": "https://github.com/urbansurgery/speckle-chat#readme"
+}
