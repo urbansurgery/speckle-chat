@@ -1,3 +1,5 @@
+<img src="https://speckle-chat.web.app/speckle-chat.png?v=1" width="150" />
+
 # speckle-chat
 Webhook relay for Speckle Server to Google Chat
 
@@ -11,3 +13,4 @@ Todo:
 Longer
 - Convert webhook relay into an installable bot
 - Configuration steps to the bot on install for account and stream selection
+
