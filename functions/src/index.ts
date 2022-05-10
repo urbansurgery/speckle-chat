@@ -63,6 +63,28 @@ app.post('*', async (req: Request, res: Response) => {
     linkUrl = `${host}/streams/${streamId}`
   }
 
+  const {
+    stream: { id: StreamId, name: StreamName },
+    user: { id: UserId, name: UserName },
+    event: { event_name: EventName, data: EventData },
+    server: { name: ServerName, canonicalUrl: ServerUrl },
+    activityMessage: ActivityMessage,
+    createdAt: CreatedAt
+  } = webhookObject
+
+  const chatPayload = {
+    StreamId,
+    StreamName,
+    UserId,
+    UserName,
+    EventName,
+    EventData,
+    ServerName,
+    ServerUrl,
+    ActivityMessage,
+    CreatedAt
+  }
+
   const { statusCode, headers, trailers, body } = await request(
     'https://chat.googleapis.com/v1/spaces/AAAAIhCWPwc/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=KJ3KMwN43kf8ra8DdQXepnbJrgRdjdxOahL1vYn9B4k%3D',
     {
@@ -93,6 +115,29 @@ app.post('*', async (req: Request, res: Response) => {
                           url: `${linkUrl}`
                         }
                       }
+                    }
+                  },
+                  {
+                    buttons: [
+                      {
+                        textButton: {
+                          text: 'OPEN IN SPECKLE',
+                          onClick: {
+                            openLink: {
+                              url: `${linkUrl}`
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                widgets: [
+                  {
+                    textParagraph: {
+                      text: `${JSON.stringify(chatPayload, null, 2)}`
                     }
                   },
                   {
